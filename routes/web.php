@@ -24,10 +24,15 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Blog', 'prefix' => 'blog'], 
 });
 Route::group(['prefix' => 'digging_deeper'], function () {
 
-    Route::get('collections', [DiggingDeeperController::class, 'collections'])
+    Route::get('collections', [App\Http\Controllers\DiggingDeeperController::class, 'collections'])
 
         ->name('digging_deeper.collections');
-
+        Route::get('process-video', 'App\Http\Controllers\DiggingDeeperController@processVideo')
+        ->name('digging_deeper.processVideo');
+        
+        Route::get('prepare-catalog', 'App\Http\Controllers\DiggingDeeperController@prepareCatalog')
+        ->name('digging_deeper.prepareCatalog'); 
+    
 });
 //Адмінка
 $groupData = [
