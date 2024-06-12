@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestTestController;
 use App\Http\Controllers\DiggingDeeperController;
-
+use App\Http\Controllers\Api\Blog\PostControllerApi;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -51,3 +51,4 @@ Route::group($groupData, function () {
     ->except(['show'])                               //не робити маршрут для метода show
     ->names('blog.admin.posts');
  });
+ Route::get('api/blog/posts', [\App\Http\Controllers\Api\Blog\PostControllerApi::class, 'index']);
