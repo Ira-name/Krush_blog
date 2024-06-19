@@ -60,21 +60,5 @@ Route::group($groupData, function () {
 
  Route::get('api/categories', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'index']);
  Route::get('api/categories/{id}', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'show']);
- Route::post('/posts', [\App\Http\Controllers\Api\Blog\PostControllerApi::class, 'store']);
-
-
-
-
- //Route::post('api/categories', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'store']);
- Route::post('/categories', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'store']);
- Route::put('api/categories/update/{id}', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'update']);
- Route::get('api/categories/edit/{id}', [\App\Http\Controllers\Admin\Blog\CategoryController::class, 'edit']);
- Route::delete('api/categories/delete/{id}', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'destroy']);
-
- Route::prefix('api')->group(function () {
-    Route::resource('categories', CategoryControllerApi::class);
-
-    Route::post('api/categories', [\App\Http\Controllers\Api\Blog\CategoryControllerApi::class, 'create']);
-    
-});
+//  Route::post('/posts', [\App\Http\Controllers\Api\Blog\PostControllerApi::class, 'store']);
 
